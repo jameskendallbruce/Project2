@@ -1,0 +1,115 @@
+<style>
+    .warning{
+        margin-top: 10px;
+        color: red;
+        display: none;
+    }
+    .searchForm{
+        margin-top: 300px;
+        text-align: center;
+    }
+
+    
+</style>
+
+<div class="offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3 col-lg-6 col-md-6 col-sm-6 col-xs-6 searchForm" style="text-align: left;">
+    <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+        <input type="text" placeholder = "Location" id="location" class="form-control">
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+        <select class="form-control" id="food_type" placeholder = "Food type" id="food_type">
+                    <option>&nbsp;&nbsp;&nbsp;</option>
+                    <option>Asian</option>
+                    <option>Italian</option>
+                    <option>Chinese</option>
+                    <option>French</option>
+                    <option>American</option>
+                    <option>Indian</option>
+                    <option>Mexican</option>
+                    <option>Spanish</option>
+                    <option>Thai</option>
+                    <option>Japanese</option>
+                    <option>Vietnamese</option>
+                    <option>German</option>
+                    <option>Greek</option>
+                    <option>Korean</option>
+                    <option>Indonesian</option>
+                    <option>Fillipino</option>
+                    <option>Portuguese</option>
+                    <option>Mediterranean</option>
+                    <option>Irish</option>
+                    <option>Russian</option>
+                    <option>Polish</option>
+                    <option>Brazilian</option>
+                    <option>Jamican</option>
+                </select>
+    </div>
+    <div class="form-group mx-sm-3 mb-1">
+        <button type="submit" class="btn btn-success">Search</button>
+    </div>
+    </form>
+     <div id="warning" class="warning">
+        <p> * Both the fields are mandatory</p>
+    </div>
+</div>
+
+{{!-- <div id="test">
+    <h2> Test: this is where the result will b displayed</h2>
+</div> --}}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="panel panel-body col-lg-6 col-md-6 col-sm-6 imagePanel">
+                    <img src="">
+                </div>
+                <div class="panel panel-body col-lg-6 col-md-6  col-sm-6 infoPanel">
+                    <p> Food Name : <span id="food_name"></span></p>
+                    <p> Food Type : <span id="food_type"></span></p>
+                    <p> Price : <span id="price"></span></p>
+                    <p> Seller Name : <span id="seller_name"></span></p>
+                    <p> Seller Location : <span id="seller_location"></span></p>
+                    <p> Delivery Available : <span id="Delivery"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+    function getSearchParameters(event){
+        event.preventDefault();
+        
+        var location = $("#location").val().trim();
+        var food_type = $("#food_type").val().trim();
+        if ( location == "" || food_type ==""){
+            $(".warning").show();
+        }else{
+        var searchParams = {
+            location : location,
+            food_type : food_type
+            }
+        var searchQuery = '/searchResults/' + searchParams.location + '/' + searchParams.food_type;
+        console.log("SEARCH QUERY!", searchQuery);
+        $.get('/searchResults/' + searchParams.location + '/' + searchParams.food_type).then(function (data) {
+            console.log("DATA!", data);
+            //window.location.href="results";
+            $("#test").append("Hello");
+           
+        });
+        }
+
+    }
+
+   $("form").on("submit", getSearchParameters);
+</script>
+

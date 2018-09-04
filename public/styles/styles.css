@@ -1,3 +1,19 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+#warningAllFieldsRequired{
+    margin-top: 10px;
+    display: none;
+    color: red;
+}
+#priceDataType{
+    margin-top: 10px;
+    display: none;
+    color: red;
+}
+
+.newListingForm{
+  text-align: center;
+  margin-top: 50px;
+}
