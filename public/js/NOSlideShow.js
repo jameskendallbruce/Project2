@@ -1,10 +1,3 @@
-
-/* 
-/  NOSlideShow.js (v0.2)
-/ 
-/  Nono MartÃ­nez Alonso (@nonoesp)
-*/
-
 function SlideShow(token) {
 
   // Unique token to differentiate SlideShows
@@ -52,23 +45,26 @@ SlideShow.prototype.nextSlide = function() {
 
 SlideShow.prototype.didAdvanceSlide = function() {
   this.displaySlide();
-};
+}; 
 
 SlideShow.prototype.displaySlide = function() {
-  var currentSlide = this.currentSlide();
-  var nextSlide = this.nextSlide();
-  var container = this.container;
 
-  // Set back image
-  container.background.css('/Users/williamcooper/workspace/Project2/public/images/k1.jpg', "url('" + currentSlide.image + "')");
+    var currentSlide = this.currentSlide();
+    var nextSlide = this.nextSlide();
+    var container = this.container;
 
-  // Set current slide stuff
-  container.label.html(currentSlide.name);
-  container.image.animate({opacity: '0.0'}, 500, function (){
-    $(this).css('opacity', '1.0');
-    container.image.css('background-image', "url('" + currentSlide.image + "')");
-  });
-setTimeout('$(".cover-img.cover-img__b").css("background-image", "url(\"img/slides/" + nextSlide.image + '\')")', 1000);
+    // Set back image
+    container.background.css('background-image', "url('" + currentSlide.image + "')");
 
-  this.didDisplaySlide();
+    // Set current slide stuff
+    
+    container.label.html(currentSlide.name);      
+    container.image.animate({opacity: '0.0'}, 5000, function (){
+      $(this).css('opacity', '1.0');
+      container.image.css('background-image', "url('" + currentSlide.image + "')");
+    });    
+    
+    //setTimeout('$(".cover-img.cover-img__b").css("background-image", "url(\'img/slides/' + nextSlide.image + '\')")', 1000);
+
+    this.didDisplaySlide();
 };

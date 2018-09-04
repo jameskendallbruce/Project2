@@ -1,0 +1,102 @@
+<header>
+  <div class="headerOptions">
+    <div class="register">
+      <a href="">Register</a>
+    </div>
+    <div class="logIn">
+      <a href="">Login</a>
+    </div>
+  </div>
+</header>
+<div class="text-wrapper">
+    <div class="cover-body">
+      <div class="cover-body-inner">
+        <form class="clearfix mb-4 formRow" action="POST">
+          <div class="form-group location">
+            <input type="text" id="example-text" class="form-control" aria-describedby="location" placeholder="City, State, Zip">
+          </div>
+          <div class="form-group foodRequest">
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="What do you want?"></textarea>
+          </div>
+          <button id="submit" class="SubmitBtn float-right">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cover-img cover-img__b"></div>
+<div class="cover-img cover-img__a"></div>
+
+
+<script src="js/NOSlideShow.js"></script> 
+<script>
+var mySlideShow = new SlideShow('projectSlides');
+    mySlideShow.container.label = $(".cover-subtitle");
+    mySlideShow.container.image = $(".cover-img.cover-img__a");
+    mySlideShow.container.background = $(".cover-img.cover-img__b");
+
+  // Set Slides.
+  mySlideShow.setSlides([{name: 'This Works', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k1.jpg?raw=true'},
+                         {name: 'Second Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k2.jpg?raw=true'},
+                         {name: 'Third Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k3.jpg?raw=true'},
+                         {name: 'Fouth Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k4.jpg?raw=true'},
+                         {name: 'Fifth Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k5.jpg?raw=true'},
+                         {name: 'Sixth Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k6.jpg?raw=true'}
+						            ]);
+
+  // Display first slide.
+  mySlideShow.displaySlide();
+
+  // Loop slides.
+  var showInterval = setInterval("mySlideShow.advanceSlide()", 8000);
+
+/*
+// Layout
+function adjustCoverImage() {
+  var width = $(".cover").width();
+  var height = width * 0.50;
+  $(".cover").height(height+'px');
+}
+
+$(window).resize(function() { 
+  adjustCoverImage();
+});
+
+$(document).ready(function() { 
+  adjustCoverImage();
+});*/
+
+</script>
+<script src="/js/index.js"></script>
+</body>
+<!--
+<div id="home">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h2>Food Post</h2>
+        <form class="clearfix mb-4" action="POST">
+          <div class="form-group">
+            <label for="example-text">Example Text</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          </div>
+          <div class="form-group">
+            <label for="example-description">Example Description</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+
+       
+      </div>
+    </div>
+  </div>
+  -->
