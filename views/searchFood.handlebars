@@ -5,14 +5,27 @@
         display: none;
     }
     .searchForm{
-        margin-top: 300px;
+        margin-top: 180px;
         text-align: center;
     }
 
     
 </style>
 
-<div class="offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3 col-lg-6 col-md-6 col-sm-6 col-xs-6 searchForm" style="text-align: left;">
+<div "mainBody">
+<header>
+  <div class="headerOptions">
+    <div class="register">
+      <a href="">Register</a>
+    </div>
+    <div class="logIn">
+      <a href="">Login</a>
+    </div>
+  </div>
+</header>
+
+
+<div class="main offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3 col-lg-6 col-md-6 col-sm-6 col-xs-6 searchForm" style="text-align: left;">
     <form class="form-inline">
     <div class="form-group mx-sm-3 mb-2">
         <input type="text" placeholder = "Location" id="location" class="form-control">
@@ -54,10 +67,15 @@
         <p> * Both the fields are mandatory</p>
     </div>
 </div>
+</div>
+<div class="cover-img cover-img__b"></div>
+<div class="cover-img cover-img__a"></div>
+
 
 {{!-- <div id="test">
     <h2> Test: this is where the result will b displayed</h2>
 </div> --}}
+
 
 
 <div class="container">
@@ -81,9 +99,25 @@
 </div>
 
 
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/NOSlideShow.js"></script> 
+<script>
+var mySlideShow = new SlideShow('projectSlides');
+    mySlideShow.container.label = $(".cover-subtitle");
+    mySlideShow.container.image = $(".cover-img.cover-img__a");
+    mySlideShow.container.background = $(".cover-img.cover-img__b");
+  // Set Slides.
+  mySlideShow.setSlides([{name: 'This Works', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k1.jpg?raw=true'},
+                         {name: 'Second Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k2.jpg?raw=true'},
+                         {name: 'Third Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k3.jpg?raw=true'},
+                         {name: 'Fouth Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k4.jpg?raw=true'},
+                         {name: 'Fifth Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k5.jpg?raw=true'},
+                         {name: 'Sixth Slide', image: 'https://github.com/jameskendallbruce/Project2/blob/initialFiles/public/images/k6.jpg?raw=true'}
+						            ]);
+  // Display first slide.
+  mySlideShow.displaySlide();
+  // Loop slides.
+  var showInterval = setInterval("mySlideShow.advanceSlide()", 8000);
+</script>
 
 <script>
     function getSearchParameters(event){
@@ -109,6 +143,11 @@
         }
 
     }
+    $("button").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".container").offset().top},
+        'slow');
+});
 
    $("form").on("submit", getSearchParameters);
 </script>

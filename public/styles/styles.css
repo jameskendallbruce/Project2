@@ -1,3 +1,9 @@
+.main {
+  position: relative;
+  z-index: 100;
+}
+
+
 .list-group-item {
   line-height: 2.5;
 }
