@@ -55,9 +55,8 @@
     </div>
 </div>
 
-{{!-- <div id="test">
-    <h2> Test: this is where the result will b displayed</h2>
-</div> --}}
+<div id="test">
+</div> 
 
 
 <div class="container">
@@ -103,7 +102,16 @@
         $.get('/searchResults/' + searchParams.location + '/' + searchParams.food_type).then(function (data) {
             console.log("DATA!", data);
             //window.location.href="results";
-            $("#test").append("Hello");
+
+            var elm = '<div class="iviewer_image_mask" ' +
+                     'style="background: url(http://somesite.com/path/to/image.jpg);">'+
+                        '</div>';
+
+           
+
+        
+          
+
            
         });
         }
@@ -113,3 +121,7 @@
    $("form").on("submit", getSearchParameters);
 </script>
 
+
+ {{!-- $("#test").append(data[0].id);
+            $("#test").append(data[1].id);
+            $('#test').appendTo(elm); --}}
