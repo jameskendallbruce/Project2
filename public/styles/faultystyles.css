@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+/* .list-group-item {
+=======
 .main {
   position: relative;
   z-index: 100;
@@ -5,26 +8,15 @@
 
 
 .list-group-item {
+>>>>>>> 464d3831f0784fe1392a95ebae23e7d9580f7fde
   line-height: 2.5;
-}
+} */
 
 #warningAllFieldsRequired{
     margin-top: 10px;
     display: none;
     color: red;
 }
-#priceDataType{
-    margin-top: 10px;
-    display: none;
-    color: red;
-}
-
-.newListingForm{
-  text-align: center;
-  margin-top: 50px;
-}
-
-
 #warningAllFieldsRequiredUser{
   margin-top: 10px;
   display: none;
@@ -102,7 +94,7 @@ span.psw {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 102; /* Sit on top */
+    z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -114,15 +106,15 @@ span.psw {
 }
 
 /* Modal Content/Box */
- .modal-content {
+/* .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%;/*Could be more or less, depending on screen size */
-}
+    /* border: 1px solid #888; */
+    /*width: 80%;*//*Could be more or less, depending on screen size */
+/* } */
 
 /* The Close Button (x) */
-.close {
+/* .close {
     position: absolute;
     right: 25px;
     top: 0;
@@ -135,10 +127,10 @@ span.psw {
 .close:focus {
     color: red;
     cursor: pointer;
-}
+} */
 
 /* Add Zoom Animation */
-.animate {
+/* .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
 }
@@ -151,10 +143,10 @@ span.psw {
 @keyframes animatezoom {
     from {transform: scale(0)} 
     to {transform: scale(1)}
-}
+} */
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+/* @media screen and (max-width: 300px) {
     span.psw {
        display: block;
        float: none;
@@ -162,4 +154,4 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
-}
+} */

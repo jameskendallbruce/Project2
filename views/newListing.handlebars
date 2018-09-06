@@ -1,0 +1,113 @@
+<body>
+    {{!-- Linking he style sheet --}}
+    <link href="styles/styles.css" rel="stylesheet">
+    <div class="newListingForm">
+        <form class="offset-lg-4 offset-md-3 offset-sm-3 offset-xs-3 col-lg-4 col-md-6 col-sm-6 col-xs-6" style="text-align: left;">
+            <div class="form-group">
+                <label>Food Name:</label>
+                <input class="form-control" id="food_name" placeholder="Food Name" type="text">
+            </div>
+            <div class="form-group">
+                <label>Food Type:</label>
+                <select class="form-control" id="food_type">
+                    <option></option>
+                     <option>Asian</option>
+                    <option>Italian</option>
+                    <option>Chinese</option>
+                    <option>French</option>
+                    <option>American</option>
+                    <option>Indian</option>
+                    <option>Mexican</option>
+                    <option>Spanish</option>
+                    <option>Thai</option>
+                    <option>Japanese</option>
+                    <option>Vietnamese</option>
+                    <option>German</option>
+                    <option>Greek</option>
+                    <option>Korean</option>
+                    <option>Indonesian</option>
+                    <option>Fillipino</option>
+                    <option>Portuguese</option>
+                    <option>Mediterranean</option>
+                    <option>Irish</option>
+                    <option>Russian</option>
+                    <option>Polish</option>
+                    <option>Brazilian</option>
+                    <option>Jamican</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Food Description:</label>
+                <textarea class="form-control" id="food_description" placeholder="Food Description" rows="3"></textarea>
+            </div>
+
+            {{!-- <div class="form-group">
+                <label>Food Image: </label>
+                <input type="file" class="form-control-file" id="form-image">
+             </div> --}}
+
+            <div class="form-group">
+                <div class="form-inline">
+                    <label>Price($) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input class="form-control" id="price" placeholder="00.00" style="width: 280px;" type="text">
+                </div>
+            </div>
+            <div class="form-group mb-1">
+                <div class="form-inline">
+                    <label>Delivery :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <select class="form-control" style="width: 280px;" id="delivery">
+                        <option></option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-success" id="createNewListing">submit</button>
+            <div id="warningAllFieldsRequired">
+                <p>* All fields are mandatory</p>
+            </div>
+            <div id="priceDataType">
+                <p>* Incorrect price format. Correct format is 00.00 </p>
+            </div>
+        </form>
+    </div>
+
+
+
+<!-- Java script -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    function captureNewListing(event) {
+        event.preventDefault();
+
+        var food_name = $("#food_name").val().trim();
+        var food_type = $("#food_type").val().trim();
+        var description = $("#food_description").val().trim();
+        var price = parseFloat($("#price").val().trim());
+        var delivery = $("#delivery").val().trim();
+
+        if (food_name == "" ||
+            food_type == "" ||
+            description == "" ||
+            price == "") {
+            $("#warningAllFieldsRequired").show();
+        } else if (isNaN(price)) {
+            $("#warningAllFieldsRequired").hide();
+            $("#priceDataType").show();
+        } else {
+            var newListing = {
+                food_name: food_name,
+                food_type: food_type,
+                description: description,
+                price: price,
+                serving_location: 'Atlanta', // Should retrive from user profile
+                seller_id: '12', //Should be retrived from user profile
+                delivery: delivery === 'No' ? false : true,
+                url: "https://s3.amazonaws.com/usersfoods/user-uploaded-food-images/1535817077764.jpg" //
+            }
+            $.post('/newListing', newListing).then(console.log).catch(console.error);
+        }
+    }
+    $("form").on("submit", captureNewListing);
+</script>
+

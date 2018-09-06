@@ -1,9 +1,9 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/index", function (req, res) {
+    db.Example.findAll({}).then(function (dbExamples) {
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
@@ -20,8 +20,32 @@ module.exports = function(app) {
     });
   });
 
+  //Render search page
+  app.get("/", function (req, res) {
+    res.render("searchFood");
+  });
+
+  // render search results
+  app.get("/searchResults/:city/:food_type", function(req, res) {
+    res.render("displayResults");
+  });
+
+  //Render new listing page
+  app.get("/newListing", function(req, res) {
+    res.render("newListing");
+  });
+
+  app.get("/newUser", function(req, res) {
+    res.render("newUser");
+  });
+
+  //render the result page
+  app.get("/results", function (req, res) {
+    res.render("results");
+  });
+
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };

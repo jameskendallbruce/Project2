@@ -1,3 +1,4 @@
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -21,4 +22,29 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  app.post("/newListing", function(req, res) {
+    db.listing.create(req.body).then( () => res.end()).catch(console.error);
+    
+  });
+
+  app.post("/newUser", function(req, res) {
+    db.user.create(req.body).then(() => res.end()).catch(console.error);
+  });
+
+  //Test:
+  app.get("/searchResults/:location/:food_type", function(req, res){
+    db.listing.findAll({
+      where:{
+        serving_location: req.params.location,
+        food_type: req.params.food_type
+      }
+    }).then( function(result){
+      console.log(result);
+      res.json(result);
+    });
+  });
 };
+
+
+
