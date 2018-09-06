@@ -31,13 +31,23 @@ module.exports = function (app) {
   });
 
   //Render new listing page
-  app.get("/newListing", function (req, res) {
+  app.get("/newListing/*", function (req, res) {
     res.render("newListing");
+  });
+
+  //image upload page
+  app.get("/imageUpload", function(res, res){
+    res.render("imageUpload");
   });
 
   //render the result page
   app.get("/results", function (req, res) {
     res.render("results");
+  });
+
+  //render user options page
+  app.get("/userOptions", function(req, res){
+    res.render("userOptions");
   });
 
   // Render 404 page for any unmatched routes
