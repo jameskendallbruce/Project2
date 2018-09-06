@@ -1,6 +1,8 @@
 
 var db = require("../models");
 
+var apple = "yadhap"; // Test
+
 module.exports = function(app) {
   // Get all examples
   app.get("/api/examples", function(req, res) {
@@ -29,6 +31,8 @@ module.exports = function(app) {
   });
 
 
+
+
   //Test:
   app.get("/searchResults/:location/:food_type", function(req, res){
     db.listing.findAll({
@@ -42,6 +46,7 @@ module.exports = function(app) {
     });
   });
 };
+
 
 
 

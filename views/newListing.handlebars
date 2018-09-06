@@ -77,8 +77,17 @@
 <!-- Java script -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+    var url = window.location.href.toString();
+    var fileName = url.split('newListing/:').pop();
+    console.log(fileName + "This is a test");
+    
     function captureNewListing(event) {
         event.preventDefault();
+        console.log("hello"); //Test
+        //console.log("This is a test" + app.settings.fileName);
+
+
+
 
         var food_name = $("#food_name").val().trim();
         var food_type = $("#food_type").val().trim();
@@ -103,11 +112,14 @@
                 serving_location: 'Atlanta', // Should retrive from user profile
                 seller_id: '12', //Should be retrived from user profile
                 delivery: delivery === 'No' ? false : true,
-                url: "https://s3.amazonaws.com/usersfoods/user-uploaded-food-images/1535817077764.jpg" //
+                url: "https://s3.amazonaws.com/usersfoods/user-uploaded-food-images/" + fileName //
             }
             $.post('/newListing', newListing).then(console.log).catch(console.error);
+
         }
     }
     $("form").on("submit", captureNewListing);
 </script>
+
+
 

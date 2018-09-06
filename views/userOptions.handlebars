@@ -1,0 +1,64 @@
+<style>
+    .optionIcons{
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .userInfoIcon{
+        padding-left: 100px;
+    }
+    .newListingIcon{
+        padding-right: 100px;
+    }
+    .btn-success{
+        margin-top: 15px;
+    }
+
+    .btnsAndIcons{
+        text-align: center
+    }
+
+      #greetUser{
+        font-size: 40px !important;
+        color: red;
+        font-family: 'Yesteryear', cursive;
+        line-height: 40px;
+        margin-top: 150px;
+        text-align: center;
+
+    }
+</style>
+     <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Yesteryear" rel="stylesheet">
+
+<p id="greetUser"><span id="greeting"></span>! What would you like to do today?</p>
+
+        <div class="row col-lg-12 optionIcons">
+            <div class="col-lg-6 col-md-6 col-sm-6 userInfoIcon">
+                <div class="btnsAndIcons">
+                    <img height="200" widht="200" src="../public/images/createNewListing.png">
+                    <p><a><button class="btn btn-success">Edit my Account</button></a></p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 newListingIcon">
+                <div class="btnsAndIcons">
+                    <img height="200" widht="200" src="../public/images/createNewListing.png">
+                    <p><a href="/imageUpload"><button class="btn btn-success" id="createNewListing">Create New Listing</button></a></p>
+                </div>
+            </div>
+        </div>
+
+<script>
+    var today = new Date();
+    var time = today.getHours();
+
+    if(time >= 0 && time < 12 ){
+         greeting = "Good Morning";
+         $("#greeting").html(greeting);
+    }else if( time >= 12 && time < 17){
+         greeting = "Good Afternoon";
+         $("#greeting").html(greeting);
+    }else{
+         greeting = "Good Evening";
+         $("#greeting").html(greeting);
+    }
+</script>
