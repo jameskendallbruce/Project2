@@ -1,38 +1,23 @@
-<style>
-    .warning{
-        margin-top: 10px;
-        color: red;
-        display: none;
-    }
-    .searchForm{
-        margin-top: 180px;
-        text-align: center;
-    }
+<div class="mainBody">
+    <header>
+        <div class="headerOptions">
+            <div class="register">
+                <a href="">Register</a>
+            </div>
+            <div class="logIn">
+                <a href="">Login</a>
+            </div>
+        </div>
+    </header>
 
-    
-</style>
+    <div class="search-frm" style="text-align: left;">
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" placeholder="Location" id="location" class="form-control">
+            </div>
 
-<div "mainBody">
-<header>
-  <div class="headerOptions">
-    <div class="register">
-      <a href="">Register</a>
-    </div>
-    <div class="logIn">
-      <a href="">Login</a>
-    </div>
-  </div>
-</header>
-
-
-<div class="main offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3 col-lg-6 col-md-6 col-sm-6 col-xs-6 searchForm" style="text-align: left;">
-    <form class="form-inline">
-    <div class="form-group mx-sm-3 mb-2">
-        <input type="text" placeholder = "Location" id="location" class="form-control">
-    </div>
-
-    <div class="form-group mx-sm-3 mb-2">
-        <select class="form-control" id="food_type" placeholder = "Food type" id="food_type">
+            <div class="form-group mx-sm-3 mb-2">
+                <select class="form-control" id="food_type" placeholder="Food type">
                     <option>&nbsp;&nbsp;&nbsp;</option>
                     <option>Asian</option>
                     <option>Italian</option>
@@ -58,27 +43,20 @@
                     <option>Brazilian</option>
                     <option>Jamican</option>
                 </select>
+            </div>
+            <div class="form-group mx-sm-3 mb-1">
+                <button id="search-btn" type="submit" class="btn btn-success">Search</button>
+            </div>
+        </form>
+        <div id="warning" class="warning">
+            <p> * Both the fields are mandatory</p>
+        </div>
     </div>
-    <div class="form-group mx-sm-3 mb-1">
-        <button type="submit" class="btn btn-success">Search</button>
-    </div>
-    </form>
-     <div id="warning" class="warning">
-        <p> * Both the fields are mandatory</p>
-    </div>
+    <div class="cover-img cover-img__b"></div>
+    <div class="cover-img cover-img__a"></div>
 </div>
-</div>
-<div class="cover-img cover-img__b"></div>
-<div class="cover-img cover-img__a"></div>
 
-
-{{!-- <div id="test">
-    <h2> Test: this is where the result will b displayed</h2>
-</div> --}}
-
-
-
-<div class="container">
+<div class="resultsCtn">
     <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="row">
@@ -117,10 +95,9 @@ var mySlideShow = new SlideShow('projectSlides');
   mySlideShow.displaySlide();
   // Loop slides.
   var showInterval = setInterval("mySlideShow.advanceSlide()", 8000);
-</script>
 
-<script>
-    function getSearchParameters(event){
+//Input Search Parameters
+      function getSearchParameters(event){
         event.preventDefault();
         
         var location = $("#location").val().trim();
@@ -145,10 +122,36 @@ var mySlideShow = new SlideShow('projectSlides');
     }
     $("button").click(function() {
     $('html,body').animate({
-        scrollTop: $(".container").offset().top},
+        scrollTop: $(".resultsCtn").offset().top},
         'slow');
 });
 
    $("form").on("submit", getSearchParameters);
+
+//Post Results in resultsCtn
+
+$("#search-btn").on("click", function() {
+      var searchedCharacter = $("#character-search").val().trim();
+
+      // Using a RegEx Pattern to remove spaces from searchedCharacter
+      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+
+      $.get("/api/characters/" + searchedCharacter, function(data) {
+        console.log(data);
+        if (data) {
+          $("#stats").show();
+          $("#name").text(data.name);
+          $("#role").text(data.role);
+          $("#age").text(data.age);
+          $("#force-points").text(data.forcePoints);
+        }
+        else {
+          $("#name").text("The force is not strong with this one. Your character was not found.");
+          $("#stats").hide();
+        }
+      });
+    });
+
 </script>
 
