@@ -1,4 +1,14 @@
 <style>
+    #searchResultTitle{
+        font-size: 40px;
+        color: red;
+        font-family: 'Comfortaa';
+        line-height: 40px;
+        margin-top: 150px;
+        text-align: center;
+        font-weight: bolder;
+        padding: 30px;
+    }
     .warning{
         margin-top: 10px;
         color: red;
@@ -54,16 +64,7 @@
     .moreInfo{
         margin-top: -35px;
     }
-    #searchResultTitle{
-        font-size: 40px !important;
-        color: red;
-        font-family: 'Yesteryear', cursive;
-        line-height: 40px;
-
-    }
-    .searchResultTitleDiv{
-        padding: 40px;
-    }
+  
 </style>
 
 <div "mainBody">
@@ -80,7 +81,7 @@
     </header>
 
 
-     <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Yesteryear" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa|Merriweather:700" rel="stylesheet">
 
 
     <div class="main offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3 col-lg-6 col-md-6 col-sm-6 col-xs-6 searchForm" style="text-align: left;">
@@ -134,14 +135,21 @@
 
 <div class="panel panel-body" id="resultPanel">
     <div class="searchResultTitleDiv">
-        <p id="searchResultTitle">Your are serching for <span id="searchFoodType"></span> cusine in <span id="searchLocation"></span></p>
+        <p id="searchResultTitle"><span id="searchFoodType"></span> cusine in <span id="searchLocation"></span></p>
     </div>
     <div id="test" class="row"></div>
 </div>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
 <script src="js/NOSlideShow.js"></script> 
 <script>
+     var reverse = anime({
+        targets: '.searchResultTitleDiv  #searchResultTitle',
+        translateX: 10,
+        direction: 'reverse',
+        loop: true
+    });
+
 var mySlideShow = new SlideShow('projectSlides');
     mySlideShow.container.label = $(".cover-subtitle");
     mySlideShow.container.image = $(".cover-img.cover-img__a");
@@ -204,8 +212,3 @@ var mySlideShow = new SlideShow('projectSlides');
    $("form").on("submit", getSearchParameters);
 </script>
 
-
-
-{{!-- '<p>Price : ' + data[i].price + '</p>' +
-                                        '<p>Serving Locaion: ' + data[i].serving_location + '</p>' +
-                                        '<p>Delivery Service : ' + data[i].delivery +  --}}

@@ -114,7 +114,11 @@
                 delivery: delivery === 'No' ? false : true,
                 url: "https://s3.amazonaws.com/usersfoods/user-uploaded-food-images/" + fileName //
             }
-            $.post('/newListing', newListing).then(console.log).catch(console.error);
+            // $.post('/newListing', newListing).then(console.log).catch(console.error);
+            $.post('/newListing', newListing).then(function(data) {
+                window.location.href = '/userOptions';
+            }).catch(console.error);
+
 
         }
     }
