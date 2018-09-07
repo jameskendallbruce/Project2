@@ -1,25 +1,64 @@
 <style>
+
+        header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 30px 10px 10px 10px;
+}
+
+
+    .upload {
+        display:flex;
+        justify-content: center;
+    }
+
     .imageuploadForm{
-        margin-top: 200px;
+        margin-top: 75px;
         text-align: center;
+        font-size: 40px;
+        color: rgb(72, 72, 72) !important;
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bolder;
+        padding: 30px;
 }
 .form{
-    padding-top: 40px;
+    padding: 40px;
+    width:80%;
+    display:flex;
+    flex-direction:column;
 }
+
+.form-control {
+    border: 2px solid rgb(72, 72, 72);
+}
+
+@media screen and (min-width:850px) {
+       .form {
+           width:40%;
+       } 
+
+    }
+
 </style>
 
+<header>
+    <a href="/">Return Home</a>
+</header>
 
 <div class="imageuploadForm">
-    <p>Let's start by uploading of the food you're selling</p>
+    <p>First, upload an image of the dish you're looking to sell.</p>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-8 col-xs-8 offset-lg-3 offest-md-3 offset-sm-2 offeset-xs-2">
+<div class="upload">
     <form  class="form-control form" method="post" enctype="multipart/form-data" action="/imageUpload">
         <p>
             <input type="file" name="upl"/>
         </p>
 
         <p>
-            <input class="btn btn-success" type="submit"/>
+            <input class="button btn-site" type="submit"/>
         </p>
     </form>
 </div>

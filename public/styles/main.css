@@ -50,18 +50,6 @@ html,body{ /*Nono*/
     margin: 0 auto;
   }
   
-  body {
-    margin:0px;
-    font-size:18px; /* 18 / 16 = 1.125em*/
-    line-height:27px;
-    font-weight:400;
-    color:#333;  
-    background-color:#ebebeb;
-    text-rendering:optimizeLegibility;
-    -webkit-font-smoothing:antialiased;
-  
-  }
-  
   /* headings */
   
   h1, h2, h3, h4, h5, h6 {
@@ -152,55 +140,7 @@ html,body{ /*Nono*/
     text-decoration:underline;
   }
   
-    /* Header */
 
-header {
-    position: relative;
-    z-index: 100;
-    display:flex;
-    justify-content: flex-end;
-    width:100%;
-    padding:30px 10px;
-}
-
-.headerOptions{
-    display:flex;
-    flex-direction:row;
-    color:#484848;
-    font-weight:bold;
-    font-size:4vw;
-    text-shadow: 1px 1px #ffffff;
-}
-
-.headerOptions div {
-    padding:0 10px;
-}
-
-/* form */
-
-.formRow {
-    display:flex;
-    flex-direction:row;
-}
-
-.location {
-    width:300px;
-    padding:0 20px;
-}
-
-.foodRequest {
-    width:250px;
-    padding:0 20px;
-}
-
-.SubmitBtn {
-    background-color:#484848;
-    color:#ffffff;
-    border-radius:5px;
-    padding:10px 20px;
-    font-weight:bold;
-    font-size:22px;
-}
 
   
   /* CODE AND PRE */
