@@ -1,3 +1,22 @@
+
+<style>
+    body {
+        margin-top: 75px;
+        text-align: center;
+        font-size: 24px;
+        font-weight:800;
+        color: rgb(72, 72, 72) !important;
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    }
+
+    .btn-align {
+        display:flex;
+        justify-content: center;
+        margin-top:30px;
+    }
+</style>
+
+
 <body>
     {{!-- Linking he style sheet --}}
     <link href="styles/styles.css" rel="stylesheet">
@@ -10,7 +29,7 @@
             <div class="form-group">
                 <label>Food Type:</label>
                 <select class="form-control" id="food_type">
-                    <option></option>
+                    <option value="" disabled selected hidden>Please Choose...</option>
                      <option>Asian</option>
                     <option>Italian</option>
                     <option>Chinese</option>
@@ -56,13 +75,15 @@
                 <div class="form-inline">
                     <label>Delivery :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select class="form-control" style="width: 280px;" id="delivery">
-                        <option></option>
+                        <option value="" disabled selected hidden>Please Select...</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </div>
             </div>
-            <button class="btn btn-success" id="createNewListing">submit</button>
+            <div class="btn-align">
+            <button class="button btn-site" id="createNewListing">submit</button>
+            </div>
             <div id="warningAllFieldsRequired">
                 <p>* All fields are mandatory</p>
             </div>

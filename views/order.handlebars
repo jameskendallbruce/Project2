@@ -1,11 +1,41 @@
+<style>
+    img {
+        width:100%;
+        max-width:600px;
+        height:auto;
+        padding:10px;
+    }
+
+    button {
+        margin:15px 0;
+    }
+
+    .container-fluid {
+        display:flex;
+        justify-content: center;
+    }
+    
+    .discriptionBox {
+        border: 1px solid rgb(72, 72, 72);
+        padding:5px;
+        font-weight:600;
+        font-size:18px;
+    }
+
+    h3 {
+        margin:5px 5px 20px 5px;
+    }
+</style>
+
+
 <h3>Place an Order</h3>
-<br>
-<div class="container">
+
+<div class="container-fluid">
     <div class="row">
         <div class="col">
             <h3>{{name}}</h3>
             <img src={{listing.url}}>
-            <div style="border: 2px black solid">
+            <div class="discriptionBox">
                 <p>Description: {{listing.description}}</p>
                 <p>Price: {{listing.price}}</p>
                 <p>Location: {{listing.serving_location}}</p>
@@ -16,7 +46,7 @@
             <form id="orderform">
                 <label for="quantity"><b>Quantity</b></label>
                 <select class="form-control" id="quantity">
-                    <option>&nbsp;&nbsp;&nbsp;</option>
+                    <option value="" disabled selected hidden>Quantity...</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -29,9 +59,9 @@
                     <option>10</option>
                 </select>
                 {{!-- <a href="/orderConfirm"><button class="btn btn-success">Place Order</button></a> --}}
-                <button class="btn btn-success" id="orderSubmit">Place Order</button>
+                <button class="btn-site button" id="orderSubmit">Place Order</button>
             </form>
-            <label for="message"><b>Message to Vendor</b></label>
+            <label for="message"><b>Message to Vendor</label>
             <textarea id="message" rows="4" cols="50" name="comment" form="orderform" placeholder="Write a message" required></textarea>
         </div>
     </div>

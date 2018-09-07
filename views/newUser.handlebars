@@ -1,39 +1,101 @@
-<div style="margin: 150px;">
+<style>
+    div {
+        display:flex;
+        justify-content: center;
+    }
 
+    div p {
+        padding:20px 5px;
+        color:red;
+        font-weight:600;
+    }
+
+    .button-ctn {
+        display: flex;
+        justify-content: center;
+        margin:30px 5px;
+    }
+
+    input {
+        height:40px;
+        padding:0 5px;
+        border-radius: 10px;
+    }
+
+    .signUp {
+        width:50%;
+    }
+
+    .form-ctn {
+        margin:10px 5px;
+        display:flex;
+        flex-direction: column;
+    }
+
+    h3 {
+        margin-bottom:5px;
+        padding-top:15px;
+    }
+
+</style>
+
+<header>
     <a href="/">Return Home</a>
+</header>
+<div class="container-fluid">
 
-    <form>
+    <form class="signUp">
         {{!-- action="POST" --}}
         <h1>New User Sign Up</h1>
-        <h3>Username</h3>
-        <input type="text" id="username">
-        <h3>Password</h3>
-        <input type="password" id="password">
-        <h3>First Name</h3>
-        <input type="text" placeholder="John" id="first_name">
-        <br>
-        <h3>Last Name</h3>
-        <input type="text" placeholder="Doe" id="last_name">
-        <br>
-        <h3>Email Address</h3>
-        <input type="text" placeholder="emailaddress@google.net" id="email">
-        <br>
-        <h3>StreetAddress</h3>
-        <input type="text" placeholder="Street Adress" id="address">
-        <br>
-        <h3>City</h3>
-        <input type="text" placeholder="City" id="city">
-        <br>
-        <h3>State</h3>
-        <input type="text" placeholder="State" id="state">
-        <br>
-        <h3>Zip</h3>
-        <input type="text" placeholder="Zip" id="zip">
-        <br>
-        <button type="submit" id="createNewUser">Create New User</button>
-            <div id="warningAllFieldsRequiredUser">
-                <p>* All fields are mandatory</p>
-            </div>
+
+        <div class="form-ctn">
+            <h3>Username</h3>
+            <input type="text" id="username" placeholder="username">
+        </div>
+
+        <div class="form-ctn">
+            <h3>Password</h3>
+            <input type="password" id="password" placeholder="password">
+        </div>
+
+        <div class="form-ctn">
+            <h3>First Name</h3>
+            <input type="text" placeholder="first name" id="first_name">
+        </div>
+
+        <div class="form-ctn">
+            <h3>Last Name</h3>
+            <input type="text" placeholder="last name" id="last_name">
+        </div>
+
+        <div class="form-ctn">
+            <h3>Email</h3>
+            <input type="text" placeholder="email address" id="email">
+        </div>
+        <div class="form-ctn">
+            <h3>Address</h3>
+            <input type="text" placeholder="street address" id="address">
+        </div>
+        <div class="form-ctn">
+            <h3>City</h3>
+            <input type="text" placeholder="city" id="city">
+        </div>
+        <div class="form-ctn">
+            <h3>State</h3>
+            <input type="text" placeholder="state" id="state">
+        </div>
+        <div class="form-ctn">
+            <h3>Zip</h3>
+            <input type="text" placeholder="zip code" id="zip">
+        </div>
+
+        <div class="button-ctn">
+            <button type="submit" id="createNewUser" class="button btn-site">Create New User</button>
+        </div>
+
+        <div id="warningAllFieldsRequiredUser">
+            <p>* All fields are mandatory</p>
+        </div>
     </form>
 </div>
 

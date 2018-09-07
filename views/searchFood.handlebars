@@ -1,8 +1,8 @@
 <style>
     #searchResultTitle{
         font-size: 40px;
-        color: red;
-        font-family: 'Comfortaa';
+        color: rgb(72, 72, 72) !important;
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
         line-height: 40px;
         margin-top: 150px;
         text-align: center;
@@ -11,29 +11,27 @@
     }
     .warning{
         margin-top: 10px;
-        color: red;
         display: none;
+        background-color:#ebebeb;
+        opacity: 0.7;
+        height:30px;
+        padding:0 5px;
     }
+
+    .warning p {
+        height: 1px;
+        font-size: 20px;
+        color:red;
+        font-weight:800;
+        font-size:1.4vw;
+        display:flex;
+        justify-content: center;
+    }
+
+
     .searchForm{
         margin-top: 180px;
         text-align: center;
-    }
-   
-    #resultPanel{
-        min-height: 1000px;
-        margin-top: 360px;
-        text-align: center;
-        background-color: lavender;
-
-    }
-    
-    .resultBox{
-        margin: 15px;
-        margin-left: 60px; 
-        border-radius: 2%;
-        background-color: lightcyan;
-        padding-top: 25px;
-
     }
     
     .resultBoxImage{
@@ -43,27 +41,55 @@
         border-radius:3%;
 
     }
+
+    .resultBox{
+  margin: 15px;
+  margin-left: 60px; 
+  border-radius: 2%;
+  background-color: #ebebeb;
+  padding-top: 25px;
+
+}
+
+
     .resultBoxInfo{
-        color: black;
-        padding-top: 20px;
+        color: rgb(72, 72, 72) !important;
+        padding: 10px 5px;
+        font-size:20px;
+        font-weight:800;
     }
 
     .resultImageStyle{
         height: 300px;
         width: 460px;
     }
-
-    p{
-        height: 1px;
-        font-size: 20px;
-    }
    
     #price{
-        color: red;
+        color: rgb(72, 72, 72) !important;
+        font-weight:800;
     }
     .moreInfo{
         margin-top: -35px;
     }
+
+@media screen and (max-width:770px) {
+
+  .resultBox {
+    margin: 0 !important;
+    margin-left: 0 !important;
+    border-radius: 2%;
+    background-color: #ebebeb;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+      display:flex;
+      justify-content: center;
+  }
+
+}
   
 </style>
 
@@ -72,9 +98,9 @@
     <header>
     <div class="headerOptions">
         <div class="register">
-            <a href="/newUser"><button class="btn btn-success">Register</button></a>        </div>
+            <a href="/newUser"><button class="button btn-site">Register</button></a>        </div>
         <div class="logIn">
-            <a href="/userOptions"><button class="btn btn-success">Login</button></a>
+            <a href="/userOptions"><button class="button btn-site">Login</button></a>
         </div>
     </div>
     </header>
@@ -83,7 +109,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa|Merriweather:700" rel="stylesheet">
 
 
-    <div class="main offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3 col-lg-6 col-md-6 col-sm-6 col-xs-6 searchForm" style="text-align: left;">
+    <div class="main offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3 col-lg-6 col-md-6 col-sm-6 col-xs-6 search-frm" style="text-align: left;">
         <form class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
             <input type="text" placeholder = "Location" id="location" class="form-control">
@@ -118,11 +144,11 @@
                     </select>
         </div>
         <div class="form-group mx-sm-3 mb-1">
-            <button type="submit" class="btn btn-success">Search</button>
+            <button type="submit" class="button btn-site">Search</button>
         </div>
         </form>
         <div id="warning" class="warning">
-            <p> * Both the fields are mandatory</p>
+            <p>* Both the fields are mandatory</p>
         </div>
     </div>
     </div>
@@ -134,7 +160,7 @@
 
 <div class="panel panel-body" id="resultPanel">
     <div class="searchResultTitleDiv">
-        <p id="searchResultTitle"><span id="searchFoodType"></span> cusine in <span id="searchLocation"></span></p>
+        <p id="searchResultTitle"><span id="searchFoodType"></span> Results: <span id="searchLocation"></span></p>
     </div>
     <div id="test" class="row"></div>
 </div>
@@ -142,12 +168,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
 <script src="js/NOSlideShow.js"></script> 
 <script>
-     var reverse = anime({
-        targets: '.searchResultTitleDiv  #searchResultTitle',
-        translateX: 10,
-        direction: 'reverse',
-        loop: true
-    });
+//
+//    var reverse = anime({
+//        targets: '.searchResultTitleDiv  #searchResultTitle',
+//       translateX: 10,
+//       direction: 'reverse',
+//      loop: true
+//
 
 var mySlideShow = new SlideShow('projectSlides');
     mySlideShow.container.label = $(".cover-subtitle");
@@ -196,12 +223,12 @@ var mySlideShow = new SlideShow('projectSlides');
             }, 1000);
 
             for(var i = 0; i < data.length; i++){
-                $("#test").append($('<div class=" col-lg-5 col-md-5 col-sm-11 col-xs-11 offset-lg-1 resultBox">' +
-                                    '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 resultBoxImage">' +
+                $("#test").append($('<div class="resultBox">' +
+                                    '<div class="resultBoxImage">' +
                                          '<img src=" ' + data[i].url + ' " class="img-responsive resultImageStyle"></div>' +
-                                    '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 resultBoxInfo">' +
-                                        '<p>Food Name : ' + data[i].food_name + '<span id="price"> ( $ ' + data[i].price + ')</span></p>' +
-                                         '</p><p><a href="/order/' + data[i].id + '"><button class="btn btn-success moreInfo">More Info</button></a></p></div></div'));
+                                    '<div class="resultBoxInfo">' +
+                                        '<p>Food Name : ' + data[i].food_name + '<span id="price"> ($' + data[i].price + ')</span></p>' +
+                                         '</p><p><a href="/order/' + data[i].id + '"><button class="button btn-site moreInfo">More Info</button></a></p></div></div'));
             }
         });
         }
