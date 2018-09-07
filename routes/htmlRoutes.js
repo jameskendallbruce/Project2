@@ -50,6 +50,23 @@ module.exports = function (app) {
     res.render("userOptions");
   });
 
+  app.get("/order/:id", function(req, res){
+    db.listing.findOne({ where: { id: req.params.id } }).then(function (item){
+      res.render("order", {
+        listing: item
+      });
+    });
+  });
+
+  app.get("/orderConfirm", function(req, res){
+    res.render("orderConfirm");
+  });
+
+  app.get("/newUser", function(req, res){
+    res.render("newUser");
+  });
+  
+
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");
