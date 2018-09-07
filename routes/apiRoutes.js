@@ -26,8 +26,7 @@ module.exports = function(app) {
   });
 
   app.post("/newListing", function(req, res) {
-    db.listing.create(req.body).then( () => res.end()).catch(console.error);
-    
+    db.listing.create(req.body).then(() => res.end()).catch(console.error);
   });
 
 

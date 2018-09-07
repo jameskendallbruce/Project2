@@ -33,10 +33,6 @@ aws.config.update({
   accessKeyId: keys.aws.accessKeyId,
   region: keys.aws.region
 
-  // secretAccessKey: " ' "  + keys.aws.secretAccessKey + " ' ",
-  // accessKeyId: " ' " + keys.aws.accessKeyId + " ' ",
-  // region: "'" + keys.aws.region + "'"
-
 });
 
 var s3 = new aws.S3();

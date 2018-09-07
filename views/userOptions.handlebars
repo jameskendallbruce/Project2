@@ -18,36 +18,50 @@
         text-align: center
     }
 
-      #greetUser{
+      #greetUserDiv{
         font-size: 40px !important;
         color: red;
-        font-family: 'Yesteryear', cursive;
+        font-family: 'Comfortaa';
         line-height: 40px;
         margin-top: 150px;
         text-align: center;
-
+        font-weight: bolder;
     }
 </style>
-     <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Yesteryear" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa|Merriweather:700" rel="stylesheet">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
 
-<p id="greetUser"><span id="greeting"></span>! What would you like to do today?</p>
+    <div id="greetUserDiv">
+        <p id="greetUser"><span id="greeting"></span>! What would you like to do today?</p>
+    </div>
 
         <div class="row col-lg-12 optionIcons">
             <div class="col-lg-6 col-md-6 col-sm-6 userInfoIcon">
                 <div class="btnsAndIcons">
-                    <img height="200" widht="200" src="../public/images/createNewListing.png">
+                    <img height="200" widht="200" src="https://image.ibb.co/cxqANz/user_Image.png">
                     <p><a><button class="btn btn-success">Edit my Account</button></a></p>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 newListingIcon">
                 <div class="btnsAndIcons">
-                    <img height="200" widht="200" src="../public/images/createNewListing.png">
+                    <img height="200" widht="200" src="https://preview.ibb.co/dvqo9e/create_New_Listing.png" alt="create_New_Listing">
                     <p><a href="/imageUpload"><button class="btn btn-success" id="createNewListing">Create New Listing</button></a></p>
                 </div>
             </div>
         </div>
 
 <script>
+    //################################# test
+
+    var reverse = anime({
+        targets: '#greetUserDiv #greetUser',
+        translateX: 10,
+        direction: 'reverse',
+        loop: true
+    });
+
+    //################################# test
+
     var today = new Date();
     var time = today.getHours();
 
