@@ -29,7 +29,9 @@ module.exports = function(app) {
     db.listing.create(req.body).then(() => res.end()).catch(console.error);
   });
 
-
+  app.post("/newUser", function(req, res) {
+    db.user.create(req.body).then(() => res.end()).catch(console.error);
+  });
 
 
   //Test:

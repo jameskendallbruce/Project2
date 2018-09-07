@@ -72,8 +72,7 @@
     <header>
     <div class="headerOptions">
         <div class="register">
-        <a href=""><button class="btn btn-success">Register</button></a>
-        </div>
+            <a href="/newUser"><button class="btn btn-success">Register</button></a>        </div>
         <div class="logIn">
             <a href="/userOptions"><button class="btn btn-success">Login</button></a>
         </div>
@@ -202,7 +201,7 @@ var mySlideShow = new SlideShow('projectSlides');
                                          '<img src=" ' + data[i].url + ' " class="img-responsive resultImageStyle"></div>' +
                                     '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 resultBoxInfo">' +
                                         '<p>Food Name : ' + data[i].food_name + '<span id="price"> ( $ ' + data[i].price + ')</span></p>' +
-                                        '</p><p><button class="btn btn-success moreInfo">More Info</button></p></div></div'));
+                                         '</p><p><a href="/order/' + data[i].id + '"><button class="btn btn-success moreInfo">More Info</button></a></p></div></div'));
             }
         });
         }
