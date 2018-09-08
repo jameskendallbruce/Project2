@@ -7,6 +7,13 @@
     padding: 30px 10px 10px 10px;
 }
 
+#warning{
+    color: red; 
+    text-align: center;
+    display: none;
+    font-size: 18 px;
+}
+
 
     .upload {
         display:flex;
@@ -45,7 +52,7 @@
 </style>
 
 <header>
-    <a href="/">Return Home</a>
+    <a href="/"><img height="100" widht="100" src="https://preview.ibb.co/gjeVs9/homebtn.png" alt="homebtn" border="0"></a>
 </header>
 
 <div class="imageuploadForm">
@@ -54,11 +61,14 @@
 <div class="upload">
     <form  class="form-control form" method="post" enctype="multipart/form-data" action="/imageUpload">
         <p>
-            <input type="file" name="upl"/>
+            <input type="file"  id="upl" name="upl" required/>
         </p>
 
         <p>
             <input class="button btn-site" type="submit"/>
         </p>
+        
     </form>
+    
 </div>
+    
