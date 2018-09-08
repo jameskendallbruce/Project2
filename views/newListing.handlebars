@@ -60,6 +60,11 @@
                 <textarea class="form-control" id="food_description" placeholder="Food Description" rows="3"></textarea>
             </div>
 
+            <div class="form-group">
+                <label>Delivery Location:</label>
+                <input class="form-control" id="delivery_location" placeholder="Delivery Location"></textarea>
+            </div>
+
             {{!-- <div class="form-group">
                 <label>Food Image: </label>
                 <input type="file" class="form-control-file" id="form-image">
@@ -100,25 +105,21 @@
 <script>
     var url = window.location.href.toString();
     var fileName = url.split('newListing/:').pop();
-    console.log(fileName + "This is a test");
     
     function captureNewListing(event) {
         event.preventDefault();
-        console.log("hello"); //Test
-        //console.log("This is a test" + app.settings.fileName);
-
-
-
 
         var food_name = $("#food_name").val().trim();
         var food_type = $("#food_type").val().trim();
         var description = $("#food_description").val().trim();
         var price = parseFloat($("#price").val().trim());
         var delivery = $("#delivery").val().trim();
+        var delivery_location = $("#delivery_location").val().trim();
 
         if (food_name == "" ||
             food_type == "" ||
             description == "" ||
+            delivery_location == "" ||
             price == "") {
             $("#warningAllFieldsRequired").show();
         } else if (isNaN(price)) {
@@ -130,7 +131,7 @@
                 food_type: food_type,
                 description: description,
                 price: price,
-                serving_location: 'Atlanta', // Should retrive from user profile
+                serving_location: delivery_location, // Should retrive from user profile
                 seller_id: '12', //Should be retrived from user profile
                 delivery: delivery === 'No' ? false : true,
                 url: "https://s3.amazonaws.com/usersfoods/user-uploaded-food-images/" + fileName //

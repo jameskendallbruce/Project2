@@ -102,6 +102,9 @@
         <div class="logIn">
             <a href="/userOptions"><button class="button btn-site">Login</button></a>
         </div>
+        <div class="logIn">
+            <a href="/logout"><button class="button btn-site">Logout</button></a>
+        </div>
     </div>
     </header>
 
@@ -197,7 +200,7 @@ var mySlideShow = new SlideShow('projectSlides');
 <script>
     function getSearchParameters(event){
         event.preventDefault();
-        
+
         var location = $("#location").val().trim();
         var food_type = $("#food_type").val().trim();
         if ( location == "" || food_type ==""){
@@ -207,16 +210,26 @@ var mySlideShow = new SlideShow('projectSlides');
         $("#resultPanel").show();
         $("#searchFoodType").html(food_type);
         $("#searchLocation").html(location);
+
+
         var searchParams = {
             location : location,
             food_type : food_type
             }
+
         var searchQuery = '/searchResults/' + searchParams.location + '/' + searchParams.food_type;
+
         console.log("SEARCH QUERY!", searchQuery);
+
+                                      
+
         $.get('/searchResults/' + searchParams.location + '/' + searchParams.food_type).then(function (data) {
-            console.log("DATA!", data);
+                                                        
             //window.location.href="/searchResults/:location/:food_type";
+
             $("#test").empty("");
+
+
 
            $('html, body').animate({
               scrollTop: $("#resultPanel").offset().top
@@ -227,7 +240,7 @@ var mySlideShow = new SlideShow('projectSlides');
                                     '<div class="resultBoxImage">' +
                                          '<img src=" ' + data[i].url + ' " class="img-responsive resultImageStyle"></div>' +
                                     '<div class="resultBoxInfo">' +
-                                        '<p>Food Name : ' + data[i].food_name + '<span id="price"> ($' + data[i].price + ')</span></p>' +
+                                        '<p>' + data[i].food_name + '<span id="price"> ($' + data[i].price + ')</span></p>' +
                                          '</p><p><a href="/order/' + data[i].id + '"><button class="button btn-site moreInfo">More Info</button></a></p></div></div'));
             }
         });
