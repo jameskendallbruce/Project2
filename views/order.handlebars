@@ -1,32 +1,112 @@
 <style>
-    img {
-        width:100%;
-        max-width:600px;
-        height:auto;
-        padding:10px;
+    .row{
+        margin-top: 40px;
     }
-
-    button {
-        margin:15px 0;
+    .image-div{
+        /* border: 1px solid black; */
+        text-align: center;
+        overflow: auto;
     }
-
-    .container-fluid {
-        display:flex;
-        justify-content: center;
+    #food_name{
+        font-size: 23px;
     }
-    
-    .discriptionBox {
-        border: 1px solid rgb(72, 72, 72);
-        padding:5px;
-        font-weight:600;
-        font-size:18px;
+    #price{
+        color: orangered;
     }
-
-    h3 {
-        margin:5px 5px 20px 5px;
+    .panel{
+        margin-top: 1em;
+    }
+    .panel-body{
+        font-size: 1em;
+    }
+    h2{
+        text-align :center;
     }
 </style>
+<h2>Place and Order </h2>
+<hr>
 
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 image-div">
+        <img style="border: 1px solid black" src="https://preview.ibb.co/gvkzkU/14.jpg">
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+        <div class="panel">
+            <div class="panel panel-body">
+                <p id="food_name">Food Name here<span id="price">&nbsp;&nbsp;&nbsp;$&nbsp;{{listing.price}}</span></p>
+            
+            
+                <p>Description : &nbsp;&nbsp;<span id="description">{{listing.description}}</span></p>
+                <p>Location : &nbsp;&nbsp;<span>{{listing.serving_location}}</span></p>
+                <p>Delivery avaliable: &nbsp;<span>{{#if listing.delivery}} Yes {{#else}} No {{#if}} </span></p>
+                <br>
+                <div class="form-group">
+                    <label for="comment">Message to the Seller:</label>
+                    <textarea class="form-control" rows="2" id="comment"></textarea>
+                </div>
+
+                <div class="form-group">
+                    
+                   <p>Qty : <select class="form-control" style="width: 95px;">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select> </p>
+                </class>
+            </div>
+            <a href="/orderConfirm" ><button class="btn btn-danger">Place an order</button></a>
+           
+        </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!-- 
+<style>
+        img {
+            width:100%;
+            max-width:600px;
+            height:auto;
+            padding:10px;
+        }
+    
+        button {
+            margin:15px 0;
+        }
+    
+        .container-fluid {
+            display:flex;
+            justify-content: center;
+        }
+        
+        .discriptionBox {
+            border: 1px solid rgb(72, 72, 72);
+            padding:5px;
+            font-weight:600;
+            font-size:18px;
+        }
+    
+        h3 {
+            margin:5px 5px 20px 5px;
+        }
+    </style>
 
 <h3>Place an Order</h3>
 
@@ -65,7 +145,7 @@
             <textarea id="message" rows="4" cols="50" name="comment" form="orderform" placeholder="Write a message" required></textarea>
         </div>
     </div>
-</div>
+</div> -->
 
 <script>
     $("#orderSubmit").on("click", function(event){
