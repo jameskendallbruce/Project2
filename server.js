@@ -21,8 +21,6 @@ var PORT = process.env.PORT || 3010;
 //################### ch3ck if cookie exists
 
 
-
-
 // Middlewares ####################################
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -72,11 +70,11 @@ app.use(cookieParser());
 //sequeilize use ########
 
 var options = {
-  host: 'localhost',
+  host: 'w29ifufy55ljjmzq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   port: 3306,
-  user: 'root',
-  password: '158966211',
-  database: 'food_db'
+  user: 'l4n27ek6nklu0j10',
+  password: 'b6hyw0ogg2qlu7bg',
+  database: 'p1xt46wkqjyqjhek'
 };
 
 var sessionStore = new MySQLStore(options);
