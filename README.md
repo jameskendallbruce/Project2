@@ -38,7 +38,7 @@ database set-up (seller registration, food directory)
 build routes
 connect api
 front end UI
-connect front end / back end
+connect front end / back end.
 
 ====================================================================================
 
